@@ -1,6 +1,7 @@
 import 'dart:html';
 
 import 'package:flutter/material.dart';
+bool pictureVisibility=false;
 
 void main() {
   runApp(MyApp());
@@ -16,9 +17,8 @@ class MyApp extends StatelessWidget {
   }
 }
 
-String btntext="Button 1";
-String btntext2="Button 2";
-String btntext3="Button 3";
+String btntext="Click to see picture";
+
 Color btnClr1= Colors.amber;
 Color btnClr2= Colors.green;
 Color btnClr3= Colors.cyanAccent;
@@ -37,47 +37,35 @@ class _MyhomepageState extends State<Myhomepage> {
       centerTitle: true,
     title: Text("My Frist App"),
     ),
-      body: Container(
+      body: SingleChildScrollView(
         child: Align(
 
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
            // crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              SizedBox(
+                height: 10,
+              ),
               RaisedButton(
                 child: Text(btntext,style: TextStyle(color: Colors.white),),
-          color: Colors.deepOrange,
+                color: Colors.deepOrange,
                   onPressed:() {
                   setState(() {
-                    btntext="Button Pressed";
+                    btntext="Picture is visible";
+                    pictureVisibility=true;
                   });
 
                   }
               ),
-              RaisedButton(
-                  child: Text(btntext2,style: TextStyle(color: Colors.white),),
-                  color: Colors.deepOrange,
-                  onPressed:() {
-                    setState(() {
-                      btntext2="Button Pressed";
-                    });
-
-                  }
+              SizedBox(
+                height: 10,
               ),
-              RaisedButton(
-                  child: Text(btntext3,style: TextStyle(color: Colors.white),),
-                  color: Colors.deepOrange,
-                  onPressed:() {
-                    setState(() {
-                      btnClr1=Colors.lightBlue;
-                      btnClr2=Colors.grey;
-                      btnClr3=Colors.deepOrangeAccent;
-                      btntext3="Button Pressed";
-                    });
+              Visibility(
+                visible:pictureVisibility ,
+                  child: Image.network("https://cdn.pixabay.com/photo/2015/04/19/08/33/flower-729512_960_720.jpg"))
+          ],
 
-                  }
-              ),
-            ],
           ),
         ),
       ),
