@@ -63,7 +63,9 @@ class _MyhomepageState extends State<Myhomepage> {
               ),
               Visibility(
                 visible:pictureVisibility ,
-                  child: Image.network("https://cdn.pixabay.com/photo/2015/04/19/08/33/flower-729512_960_720.jpg"))
+                  child: Image.network("https://cdn.pixabay.com/photo/2015/04/19/08/33/flower-729512_960_720.jpg")
+              ),
+              Image.asset("assets/images/img1.jpeg")
           ],
 
           ),
