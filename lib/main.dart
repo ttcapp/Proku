@@ -2,6 +2,7 @@ import 'dart:html';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:proku2/secend_page.dart';
 bool pictureVisibility=false;
 
 void main() {
@@ -48,6 +49,10 @@ class _MyhomepageState extends State<Myhomepage> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
            // crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              RaisedButton(onPressed:(){
+                Navigator.push(context, MaterialPageRoute
+                  (builder: (context)=>SecondPage()));
+              }),
               SizedBox(
                 height: 10,
               ),
